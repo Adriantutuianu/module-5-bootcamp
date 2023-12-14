@@ -1,7 +1,8 @@
 console.log(this);
 
 function helloThis() {
-  console.log('Inside this function, this is ' + this);
+  console.log(this);
+  console.log("Inside this function, this is " + this);
 }
 
 var child = {
@@ -12,11 +13,20 @@ var child = {
 };
 
 var investor = {
-  name: 'Cash Saver',
+  name: "Cash Saver",
+  testFunc: function () {
+    console.log(this);
+  },
   investment: {
     initialInvestment: 5000,
     investmentGrowth: function () {
-      console.log(this.initialInvestment * 1.15);
+      console.log(this);
+      // console.log(this.initialInvestment * 1.15);
     },
   },
 };
+
+// helloThis();
+child.ageTenYears();
+investor.investment.investmentGrowth();
+investor.testFunc();
